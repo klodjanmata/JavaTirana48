@@ -1,8 +1,9 @@
-package JavaAdvanced.Exercises;
+package JavaAdvanced.Exercises.Task1;
 
 public class Point2D {
-    private float x;
-    private float y;
+
+    protected float x;
+    protected float y;
 
     public Point2D(){
         this.x = 0;
@@ -14,6 +15,7 @@ public class Point2D {
         this.y = y;
     }
 
+    @Override
     public String toString(){
         return "(" + x + ", " + y + ")";
     }

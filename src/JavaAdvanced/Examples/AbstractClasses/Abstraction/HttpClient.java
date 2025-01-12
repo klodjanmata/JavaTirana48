@@ -1,5 +1,5 @@
 package JavaAdvanced.Examples.AbstractClasses.Abstraction;
 
-public interface Http1Client {
+public interface HttpClient {
     void sendRequest(String url, String body);
 }
