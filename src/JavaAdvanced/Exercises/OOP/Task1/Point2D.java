@@ -1,4 +1,4 @@
-package JavaAdvanced.Exercises.Task1;
+package JavaAdvanced.Exercises.OOP.Task1;
 
 public class Point2D {
 
