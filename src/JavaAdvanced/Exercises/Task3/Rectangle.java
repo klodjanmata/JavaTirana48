@@ -44,6 +44,6 @@ public class Rectangle extends Shape{
     public String toString() {
         return "Rectangle with width = " + width +
                 " and length = " + length +
-                " which is a sublass off" + super.toString();
+                " which is a sublass off " + super.toString();
     }
 }
