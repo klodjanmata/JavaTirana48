@@ -22,7 +22,7 @@ public class Student extends Person{
 
     @Override
     public String toString() {
-        return " -> " + typeOfStudy + " -> " + yearOfStudy + "-> " + studyPrice;
+        return super.toString() + " -> " + typeOfStudy + " -> " + yearOfStudy + "-> " + studyPrice;
     }
 
     public String getTypeOfStudy() {

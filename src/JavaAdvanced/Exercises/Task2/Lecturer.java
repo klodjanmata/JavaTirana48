@@ -18,7 +18,7 @@ public class Lecturer extends Person{
 
     @Override
     public String toString() {
-        return " -> " + specialization + " -> " + salary;
+        return super.toString() + " -> " + specialization + " -> " + salary;
     }
 
     public String getSpecialization() {
