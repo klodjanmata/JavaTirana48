@@ -10,4 +10,5 @@ public enum Genre {
     Comic,
     Biography,
     Encyclopedia,
+    Fantasy
 }
