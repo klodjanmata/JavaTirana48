@@ -78,6 +78,7 @@ public class BookTestData {
 
         for (int i = 0; i < 50; i++) {
             String title = bookTitles.get(i);
+//            String title = "Title " + i;
             int price = (int) (Math.random() * 96) + 5; // Random price between 5 and 100
             int yearOfRelease = (int) (Math.random() * (2023 - 1900 + 1)) + 1900; // Random year between 1900 and 2023
             int authorsCount = (int) (Math.random() * 3) + 1; // 1 to 3 authors
@@ -86,7 +87,9 @@ public class BookTestData {
                 authors.add(authorsList.get((int) (Math.random() * authorsList.size())));
             }
             Genre genre = genres[(int) (Math.random() * genres.length)];
-
+            if (title.equals("The Great Gatsby")){
+                genre = Genre.Drame;
+            }
             books.add(new Book(title, price, yearOfRelease, authors, genre));
         }
 

@@ -2,6 +2,7 @@ package JavaAdvanced.Exercises.Collections.Task2;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,8 +12,18 @@ public class BookService {
     public BookService() {
         bookList = new ArrayList<>();
     }
+
     public BookService(List<Book> books){
         this.bookList = books;
+    }
+
+    public HashMap<Genre, String> getGenresMap(){
+        HashMap<Genre, String> genresMap = new HashMap<>();
+        genresMap.put(Genre.Drame, "The Great Gatsby");
+        for(Book b : bookList){
+            genresMap.put(b.getGenre(), b.getTitle());
+        }
+        return genresMap;
     }
 
     public void add(Book book){
@@ -31,7 +42,35 @@ public class BookService {
             }
         }
         return booksToReturn;
-        //return bookList.stream().filter(b -> b.getGenre() == g).collect(Collectors.toList());
+    }
+
+    public List<Book> getBooksByPriceRange(int priceMin, int priceMax){
+        List<Book> booksToReturn = new ArrayList<>();
+//        for(Book b : bookList){
+//            if (b.getPrice() >= priceMin && b.getPrice() <= priceMax){
+//                booksToReturn.add(b);
+//            }
+//        }
+        // 4 lines below have the exact same result
+//        bookList.forEach(book -> {
+//            if (book.getPrice() >= priceMin && book.getPrice() <= priceMax){
+//                booksToReturn.add(book);
+//            }
+//        });
+//        booksToReturn.sort(Comparator.comparing(Book::getPrice));
+//        return booksToReturn;
+
+        booksToReturn = bookList.stream()
+                .filter(book -> book.getPrice() >= priceMin &&
+                        book.getPrice() <= priceMax)
+                .collect(Collectors.toList());
+        booksToReturn.sort(Comparator.comparing(Book::getPrice));
+        return booksToReturn;
+    }
+
+    public List<Book> getByGenreStream(Genre genre){
+        return bookList.stream().filter(b -> b.getGenre() == genre)
+                                .collect(Collectors.toList());
     }
 
     public List<Book> getByRelease(int yearOfRelease){
@@ -111,19 +150,20 @@ public class BookService {
         }
     }
 
-    //Homework
     public void orderByTitle(){
-        //List<Book> orderedList = bookList.stream().sorted(Comparator.comparing(Book::getTitle)).collect(Collectors.toList());
-        List<String> titleList = new ArrayList<>();
-        for (Book b : bookList){
-            titleList.add(b.getTitle());
-        }
-        titleList.sort(String.CASE_INSENSITIVE_ORDER);
-        List<Book> orderedList = new ArrayList<>();
-        for (String title : titleList){
-            orderedList.add(getBookByTitle(title));
-        }
-        bookList = orderedList;
+//                List<String> titleList = new ArrayList<>();
+//        for (Book b : bookList){
+//            titleList.add(b.getTitle());
+//        }
+//        titleList.sort(String.CASE_INSENSITIVE_ORDER);
+//        List<Book> orderedList = new ArrayList<>();
+//        for (String title : titleList){
+//            orderedList.add(getBookByTitle(title));
+//        }
+//        bookList = orderedList;
+        bookList = bookList.stream().sorted(Comparator.comparing(Book::getTitle))
+                                    .collect(Collectors.toList());
+
     }
 
     public List<Book> getBookList() {
