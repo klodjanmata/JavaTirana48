@@ -1,6 +1,7 @@
 package JavaAdvanced.Exercises.Collections.Task2;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -95,6 +96,15 @@ public class BookService {
         return booksToReturn;
     }
 
+    public Book getBookByTitle(String title){
+        for (Book b : bookList){
+            if(b.getTitle().equals(title)){
+                return b;
+            }
+        }
+        return null;
+    }
+
     public void printAllBooks(){
         for (Book b : bookList){
             System.out.println(b);
@@ -103,7 +113,17 @@ public class BookService {
 
     //Homework
     public void orderByTitle(){
-
+        //List<Book> orderedList = bookList.stream().sorted(Comparator.comparing(Book::getTitle)).collect(Collectors.toList());
+        List<String> titleList = new ArrayList<>();
+        for (Book b : bookList){
+            titleList.add(b.getTitle());
+        }
+        titleList.sort(String.CASE_INSENSITIVE_ORDER);
+        List<Book> orderedList = new ArrayList<>();
+        for (String title : titleList){
+            orderedList.add(getBookByTitle(title));
+        }
+        bookList = orderedList;
     }
 
     public List<Book> getBookList() {
