@@ -6,6 +6,8 @@ public class Main {
                 "Bachelor", 2, 400);
         Person p2 = new Lecturer("Albana Hoxha", "FEUT",
                 "Programim Java", 1500);
+        Person p3 = new Secretary();
+        //Student s1 = new Secretary();
         System.out.println(p1);
         System.out.println(p2);
     }
