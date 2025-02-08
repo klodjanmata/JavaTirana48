@@ -1,9 +1,29 @@
 package JavaFundamentalsCoding;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Helper {
+
+    public static Date getDateFromUser() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("FORMAT: dd.MM.yyyy\t");
+        String date = sc.nextLine();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        try{
+            Date d = sdf.parse(date);
+            return d;
+        }catch (ParseException e){
+            Date d = new Date();
+            d.setYear(1990);
+            d.setMonth(1);
+            d.setDate(1);
+            return d;
+        }
+    }
 
     public static float getFloatFromUser(){
         Scanner input = new Scanner(System.in);
