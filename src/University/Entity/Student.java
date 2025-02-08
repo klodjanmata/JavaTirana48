@@ -1,20 +1,30 @@
-package University;
+package University.Entity;
 
 import java.util.Date;
 
 public class Student extends Person {
     private FieldOfStudy fieldOfStudy;
     private Date dateOfStart;
+    private Date dateOfGraduation;
     private boolean graduated;
     private float gpa;
 
     public Student(String id, String name, String surname, char gender, Date birthday,
-                   FieldOfStudy fieldOfStudy, Date dateOfStart, boolean graduated, float gpa) {
+                   FieldOfStudy fieldOfStudy, Date dateOfStart) {
         super(id, name, surname, gender, birthday);
         this.fieldOfStudy = fieldOfStudy;
         this.dateOfStart = dateOfStart;
-        this.graduated = graduated;
-        this.gpa = gpa;
+        this.graduated = false;
+        this.dateOfGraduation = null;
+        this.gpa = 0;
+    }
+
+    public Date getDateOfGraduation() {
+        return dateOfGraduation;
+    }
+
+    public void setDateOfGraduation(Date dateOfGraduation) {
+        this.dateOfGraduation = dateOfGraduation;
     }
 
     public FieldOfStudy getFieldOfStudy() {

@@ -1,6 +1,7 @@
-package University;
+package University.Entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Lecturer extends Person{
     private Department department;

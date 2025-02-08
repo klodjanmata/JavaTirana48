@@ -1,4 +1,4 @@
-package University;
+package University.Entity;
 
 public enum Department {
     ELECTRONICS,
