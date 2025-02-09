@@ -32,10 +32,15 @@ public class SubjectRegister {
         System.out.print("Year: ");
         s.setYear(Helper.getIntFromUser());
         System.out.print("Semester: ");
-        s.setYear(Helper.getIntFromUser());
+        s.setSemester(Helper.getIntFromUser());
         System.out.print("Credits: ");
-        s.setYear(Helper.getIntFromUser());
+        s.setCredits(Helper.getIntFromUser());
         subjects.add(s);
+    }
+
+    public void printAllSubjects() {
+        System.out.println(" ID\tName\tYear\tSemester\tCredits\tDepartment");
+        subjects.forEach(System.out::println);
     }
 
     public List<String> chosenSubjects(Department department) {

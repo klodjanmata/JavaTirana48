@@ -90,4 +90,15 @@ public class Subject {
     public void setCredits(int credits) {
         this.credits = credits;
     }
+
+    @Override
+    public String toString() {
+        return
+                " " + id  + "\t" +
+                " " + name + "\t" +
+                " " + year + "\t" +
+                " " + semester + "\t" +
+                " " + credits +"\t" +
+                " " + department;
+    }
 }
