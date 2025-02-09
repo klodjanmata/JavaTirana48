@@ -1,29 +1,46 @@
 package University;
 
 import JavaFundamentalsCoding.Helper;
+import University.Entity.FieldOfStudy;
+import University.FilesIO.SubjectCSVUtil;
 import University.Registers.LecturerRegister;
 import University.Registers.SubjectRegister;
 
 public class Application {
     private LecturerRegister lecturerRegister;
     private SubjectRegister subjectRegister;
+    private SubjectCSVUtil subjectCSVUtil;
 
     public static void main(String[] args) {
         Application app = new Application();
+        initUtils(app);
         initRegisters(app);
         while(true){
             printMenu();
             int choice = getChoice();
             if(choice == 0){
+                closingOperations(app.subjectRegister, app.subjectCSVUtil);
                 return;
             }
             executeAction(choice, app);
         }
     }
 
+    private static void initUtils(Application app){
+        app.subjectCSVUtil = new SubjectCSVUtil();
+    }
+
     private static void initRegisters(Application app) {
         app.lecturerRegister = new LecturerRegister();
         app.subjectRegister = new SubjectRegister();
+    }
+
+    private static void closingOperations(SubjectRegister sr, SubjectCSVUtil subjectUtil) {
+        System.out.println("Closing operations");
+        System.out.println("Saving data into files...");
+        subjectUtil.writeToFile(sr.getSubjects());
+
+        System.out.println("Good Bye!!");
     }
 
     public static void printMenu(){

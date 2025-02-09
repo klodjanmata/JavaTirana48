@@ -7,18 +7,16 @@ public class Subject {
     private String name;
     private Department department;
     private FieldOfStudy fieldOfStudy;
-    private List<Lecturer> accreditedLecturer;
     private int year;
     private int semester;
     private int credits;
 
     public Subject(String id, String name, Department department, FieldOfStudy fieldOfStudy,
-                  List<Lecturer> accreditedLecturer, int year, int semester, int credits) {
+                   int year, int semester, int credits) {
         this.id = id;
         this.name = name;
         this.department = department;
         this.fieldOfStudy = fieldOfStudy;
-        this.accreditedLecturer = accreditedLecturer;
         this.year = year;
         this.semester = semester;
         this.credits = credits;
@@ -59,14 +57,6 @@ public class Subject {
         this.fieldOfStudy = fieldOfStudy;
     }
 
-    public List<Lecturer> getAccreditedLecturer() {
-        return accreditedLecturer;
-    }
-
-    public void setAccreditedLecturer(List<Lecturer> accreditedLecturer) {
-        this.accreditedLecturer = accreditedLecturer;
-    }
-
     public int getYear() {
         return year;
     }
@@ -98,7 +88,8 @@ public class Subject {
                 " " + name + "\t" +
                 " " + year + "\t" +
                 " " + semester + "\t" +
-                " " + credits +"\t" +
-                " " + department;
+                " " + credits + "\t" +
+                " " + department + "\t" +
+                " " + fieldOfStudy;
     }
 }
