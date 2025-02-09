@@ -25,7 +25,7 @@ public class SubjectRegister {
         Department.printChoseDepartment();
         int choice  = Helper.getIntFromUser();
         s.setDepartment(Department.values()[choice - 1]);
-        System.out.println("Chose Subject: ");
+        System.out.println("Chose Field of Study: ");
         FieldOfStudy.printChoseField();
         choice = Helper.getIntFromUser();
         s.setFieldOfStudy(FieldOfStudy.values()[choice - 1]);

@@ -60,7 +60,7 @@ public class Application {
                 System.out.println("Print Students");
                 break;
             case 7:
-                System.out.println("Print Subjects");
+                app.subjectRegister.printAllSubjects();
                 break;
             default:
                 System.out.println("Invalid choice! Please chose again!");
