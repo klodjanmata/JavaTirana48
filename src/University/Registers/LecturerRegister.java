@@ -6,7 +6,6 @@ import University.Entity.Lecturer;
 import University.Entity.Subject;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -41,9 +40,8 @@ public class LecturerRegister {
         Department.printChoseDepartment();
         int choice = Helper.getIntFromUser();
         l.setDepartment(Department.values()[choice-1]);
-        // TO DO
-        // add subjects
-        l.setSubjectList(new ArrayList<String>());
+        System.out.println("Select subjects: ");
+        //l.setSubjectList();
         lecturers.put(l.getId(), l);
         return true;
     }

@@ -3,6 +3,8 @@ package University.Entity;
 import java.util.List;
 
 public class Subject {
+    private String id;
+    private String name;
     private Department department;
     private FieldOfStudy fieldOfStudy;
     private List<Lecturer> accreditedLecturer;
@@ -10,8 +12,10 @@ public class Subject {
     private int semester;
     private int credits;
 
-    public Subject(Department department, FieldOfStudy fieldOfStudy,
+    public Subject(String id, String name, Department department, FieldOfStudy fieldOfStudy,
                   List<Lecturer> accreditedLecturer, int year, int semester, int credits) {
+        this.id = id;
+        this.name = name;
         this.department = department;
         this.fieldOfStudy = fieldOfStudy;
         this.accreditedLecturer = accreditedLecturer;
@@ -21,6 +25,22 @@ public class Subject {
     }
 
     public Subject() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Department getDepartment() {
