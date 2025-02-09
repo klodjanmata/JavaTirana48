@@ -1,17 +1,19 @@
 package University.Entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class Lecturer extends Person{
+    private static final SimpleDateFormat dateFormater = new SimpleDateFormat("dd.MM.yyyy");
     private Department department;
-    private List<Subject> subjectList;
+    private List<String> subjectList;
     private Date startDate;
     private String email;
     private String phoneNumber;
 
     public Lecturer(String id, String name, String surname, char gender, Date birthday,
-                    Department department, List<Subject> subjectList, Date startDate, String email) {
+                    Department department, List<String> subjectList, Date startDate, String email) {
         super(id, name, surname, gender, birthday);
         this.department = department;
         this.subjectList = subjectList;
@@ -45,11 +47,11 @@ public class Lecturer extends Person{
         this.phoneNumber = phoneNumber;
     }
 
-    public List<Subject> getSubjectList() {
+    public List<String> getSubjectList() {
         return subjectList;
     }
 
-    public void setSubjectList(List<Subject> subjectList) {
+    public void setSubjectList(List<String> subjectList) {
         this.subjectList = subjectList;
     }
 
@@ -68,11 +70,11 @@ public class Lecturer extends Person{
                 " " + name + '\t' +
                 " " + surname + '\t' +
                 " " + department + '\t' +
-                " " + subjectList + '\t' +
-                " " + startDate + '\t' +
+                " " + dateFormater.format(startDate) + '\t' +
                 " " + email + '\t' +
                 " " + phoneNumber + '\t' +
                 " " + gender + '\t' +
-                " " + birthday;
+                " " + dateFormater.format(birthday) + '\t' +
+                " " + subjectList;
     }
 }

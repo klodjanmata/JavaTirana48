@@ -7,6 +7,7 @@ import University.Entity.Subject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 
 public class LecturerRegister {
@@ -42,12 +43,13 @@ public class LecturerRegister {
         l.setDepartment(Department.values()[choice-1]);
         // TO DO
         // add subjects
-        l.setSubjectList(new ArrayList<Subject>());
+        l.setSubjectList(new ArrayList<String>());
         lecturers.put(l.getId(), l);
         return true;
     }
 
     public void printALlLecturers(){
+        System.out.println("  ID\tName\tSurname\t  Department\t Start Date\t  Email\t\t\t\t   Phone\tGen\t\tB. Day\t Subject List");
         lecturers.values().forEach(System.out::println);
     }
 
@@ -69,7 +71,50 @@ public class LecturerRegister {
     }
 
     public LecturerRegister() {
-        lecturers = new HashMap<>();
+        lecturers = createTestLecturer();
+//        Lecturer lecturer = createTestLecturer();
+//        lecturers.put(lecturer.getId(), lecturer);
+    }
+
+    private HashMap<String, Lecturer> createTestLecturer(){
+        HashMap<String, Lecturer> lecturers = new HashMap<>();
+        Lecturer l = new Lecturer();
+        l.setId("Test1");
+        l.setName("Alban");
+        l.setSurname("Hoxha");
+        l.setGender('M');
+        l.setBirthday(new Date());
+        l.setStartDate(new Date());
+        l.setDepartment(Department.ARCHITECTURE);
+        l.setEmail("alban@gmail.com");
+        l.setPhoneNumber("1234567890");
+        l.setSubjectList(new ArrayList<>());
+        lecturers.put(l.getId(), l);
+        l = new Lecturer();
+        l.setId("Test2");
+        l.setName("Alban");
+        l.setSurname("Hoxha");
+        l.setGender('M');
+        l.setBirthday(new Date());
+        l.setStartDate(new Date());
+        l.setDepartment(Department.ARCHITECTURE);
+        l.setEmail("alban@gmail.com");
+        l.setPhoneNumber("1234567890");
+        l.setSubjectList(new ArrayList<>());
+        lecturers.put(l.getId(), l);
+        l = new Lecturer();
+        l.setId("Test3");
+        l.setName("Alban");
+        l.setSurname("Hoxha");
+        l.setGender('M');
+        l.setBirthday(new Date());
+        l.setStartDate(new Date());
+        l.setDepartment(Department.ARCHITECTURE);
+        l.setEmail("alban@gmail.com");
+        l.setPhoneNumber("1234567890");
+        l.setSubjectList(new ArrayList<>());
+        lecturers.put(l.getId(), l);
+        return lecturers;
     }
 
     public HashMap<String, Lecturer> getLecturers() {
