@@ -66,6 +66,9 @@ public class Application {
                 System.out.println("Invalid choice! Please chose again!");
         }
     }
+    public void thisIsTest(){
+        System.out.println("This is a test");
+    }
 
     public static int getChoice(){
         int choice = -1;
