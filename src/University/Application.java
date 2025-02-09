@@ -32,7 +32,8 @@ public class Application {
 
     private static void initRegisters(Application app) {
         app.lecturerRegister = new LecturerRegister();
-        app.subjectRegister = new SubjectRegister();
+        app.subjectRegister = new SubjectRegister(app.subjectCSVUtil.readFromFile());
+
     }
 
     private static void closingOperations(SubjectRegister sr, SubjectCSVUtil subjectUtil) {
