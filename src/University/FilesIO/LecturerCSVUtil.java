@@ -79,6 +79,10 @@ public class LecturerCSVUtil {
         return convertListToMap(readFromFile());
     }
 
+    public void writeMapToFile(HashMap<String, Lecturer> lecturerMap){
+        writeToFile(converMapToList(lecturerMap));
+    }
+
     public List<Lecturer> converMapToList(HashMap<String, Lecturer> map){
         List<Lecturer> list = new ArrayList<>();
         list.addAll(map.values());

@@ -20,7 +20,7 @@ public class Application {
             printMenu();
             int choice = getChoice();
             if(choice == 0){
-                closingOperations(app.subjectRegister, app.subjectCSVUtil);
+                closingOperations(app);
                 return;
             }
             executeAction(choice, app);
@@ -38,11 +38,11 @@ public class Application {
 
     }
 
-    private static void closingOperations(SubjectRegister sr, SubjectCSVUtil subjectUtil) {
+    private static void closingOperations(Application app) {
         System.out.println("Closing operations");
         System.out.println("Saving data into files...");
-        subjectUtil.writeToFile(sr.getSubjects());
-
+        app.subjectCSVUtil.writeToFile(app.subjectRegister.getSubjects());
+        app.lecturerCSVUtil.writeMapToFile(app.lecturerRegister.getLecturers());
         System.out.println("Good Bye!!");
     }
 
