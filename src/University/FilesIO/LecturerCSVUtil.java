@@ -29,8 +29,8 @@ public class LecturerCSVUtil {
                 bw.write(lecturer.getEmail() + SEPARATOR);
                 bw.write(lecturer.getPhoneNumber() + SEPARATOR);
                 bw.write(lecturer.getGender() + SEPARATOR);
-                bw.write(lecturer.getBirthday() + SEPARATOR);
-                bw.write(lecturer.getSubjectList() + SEPARATOR);
+                bw.write(lecturer.getBirthday().toString());
+                //bw.write(lecturer.getSubjectList());
             }
             bw.close();
         }catch (IOException e){
