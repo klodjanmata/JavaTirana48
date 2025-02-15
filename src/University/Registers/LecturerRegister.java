@@ -3,7 +3,6 @@ package University.Registers;
 import JavaFundamentalsCoding.Helper;
 import University.Entity.Department;
 import University.Entity.Lecturer;
-import University.Entity.Subject;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,14 +11,14 @@ import java.util.HashMap;
 public class LecturerRegister {
     private HashMap<String, Lecturer> lecturers;
 
-    public boolean createNewLecturer(){
+    public void createNewLecturer(){
         System.out.println("Creating new lecturer! Please give the correct information about the lecturer.");
         Lecturer l = new Lecturer();
         System.out.print("ID: ");
         String id = Helper.getStringFromUser();
         if (containsLecturerById(id)){
             System.out.println("This lecturer already exists!");
-            return false;
+            return;
         }
         l.setId(id);
         System.out.print("Name: ");
@@ -43,12 +42,13 @@ public class LecturerRegister {
         System.out.println("Select subjects: ");
         //l.setSubjectList();
         lecturers.put(l.getId(), l);
-        return true;
     }
 
     public void printALlLecturers(){
         System.out.println("  ID\tName\tSurname\t  Department\t Start Date\t  Email\t\t\t\t   Phone\tGen\t\tB. Day\t Subject List");
-        lecturers.values().forEach(System.out::println);
+        if (lecturers != null){
+            lecturers.values().forEach(System.out::println);
+        }
     }
 
 

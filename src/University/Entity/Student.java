@@ -1,8 +1,10 @@
 package University.Entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Student extends Person {
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
     private FieldOfStudy fieldOfStudy;
     private Date dateOfStart;
     private Date dateOfGraduation;
@@ -18,6 +20,8 @@ public class Student extends Person {
         this.dateOfGraduation = null;
         this.gpa = 0;
     }
+
+    public Student(){}
 
     public Date getDateOfGraduation() {
         return dateOfGraduation;
@@ -57,5 +61,21 @@ public class Student extends Person {
 
     public void setGpa(float gpa) {
         this.gpa = gpa;
+    }
+
+    @Override
+    public String toString() {
+        return
+                " " + id + "\t" +
+                " " + name + "\t" +
+                " " + surname + "\t" +
+                " " + gender + "\t" +
+                " " + dateFormat.format(birthday) + "\t" +
+                " " + fieldOfStudy + "\t" +
+                " " + dateFormat.format(dateOfStart) + "\t" +
+                " " + graduated + "\t" +
+                " " + dateFormat.format(dateOfGraduation) + "\t" +
+                " " + gpa
+                ;
     }
 }

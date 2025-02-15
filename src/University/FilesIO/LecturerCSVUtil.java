@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class LecturerCSVUtil {
     private static final String FILENAME = "UniversityFiles\\Lecturers.csv";
     private static final String SEPARATOR = ",";
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
     public void writeToFile(List<Lecturer> lecturerList){
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME))){

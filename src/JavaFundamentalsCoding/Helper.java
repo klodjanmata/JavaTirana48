@@ -8,6 +8,16 @@ import java.util.Scanner;
 
 public class Helper {
 
+    public static boolean getBooleanFromUser(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please ente 1 for Yes and 0 for No");
+        int userInput = sc.nextInt();
+        if(userInput == 1){
+            return true;
+        }
+        return false;
+    }
+
     public static Date getDateFromUser() {
         Scanner sc = new Scanner(System.in);
         System.out.print("FORMAT: dd.MM.yyyy\t");

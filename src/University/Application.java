@@ -1,9 +1,12 @@
 package University;
 
 import JavaFundamentalsCoding.Helper;
+import University.Entity.Student;
 import University.FilesIO.LecturerCSVUtil;
+import University.FilesIO.StudentCSVUtil;
 import University.FilesIO.SubjectCSVUtil;
 import University.Registers.LecturerRegister;
+import University.Registers.StudentRegister;
 import University.Registers.SubjectRegister;
 
 public class Application {
@@ -11,6 +14,8 @@ public class Application {
     private LecturerCSVUtil lecturerCSVUtil;
     private SubjectRegister subjectRegister;
     private SubjectCSVUtil subjectCSVUtil;
+    private StudentRegister studentRegister;
+    private StudentCSVUtil studentCSVUtil;
 
     public static void main(String[] args) {
         Application app = new Application();
@@ -30,19 +35,21 @@ public class Application {
     private static void initUtils(Application app){
         app.subjectCSVUtil = new SubjectCSVUtil();
         app.lecturerCSVUtil = new LecturerCSVUtil();
+        app.studentCSVUtil = new StudentCSVUtil();
     }
 
     private static void initRegisters(Application app) {
         app.lecturerRegister = new LecturerRegister(app.lecturerCSVUtil.readAndReturnMap());
         app.subjectRegister = new SubjectRegister(app.subjectCSVUtil.readFromFile());
-
-    }
+        app.studentRegister = new StudentRegister(app.studentCSVUtil.readFromFile())
+;    }
 
     private static void closingOperations(Application app) {
         System.out.println("Closing operations");
         System.out.println("Saving data into files...");
         app.subjectCSVUtil.writeToFile(app.subjectRegister.getSubjects());
         app.lecturerCSVUtil.writeMapToFile(app.lecturerRegister.getLecturers());
+        app.studentCSVUtil.writeToFile(app.studentRegister.getStudents());
         System.out.println("Good Bye!!");
     }
 
@@ -64,7 +71,7 @@ public class Application {
                 app.lecturerRegister.createNewLecturer();
                 break;
             case 2:
-                System.out.println("Adding Student");
+                app.studentRegister.createNewStudent();
                 break;
             case 3:
                 System.out.println("Grades");
@@ -78,6 +85,7 @@ public class Application {
                 break;
             case 6:
                 System.out.println("Print Students");
+                app.studentRegister.printAllStudents();
                 break;
             case 7:
                 app.subjectRegister.printAllSubjects();

@@ -39,7 +39,9 @@ public class SubjectRegister {
 
     public void printAllSubjects() {
         System.out.println(" ID\tName\tYear\tSemester\tCredits\tDepartment");
-        subjects.forEach(System.out::println);
+        if (subjects != null) {
+            subjects.forEach(System.out::println);
+        }
     }
 
     public List<String> chosenSubjects(Department department) {
