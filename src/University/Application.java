@@ -1,7 +1,6 @@
 package University;
 
 import JavaFundamentalsCoding.Helper;
-import University.Entity.FieldOfStudy;
 import University.FilesIO.SubjectCSVUtil;
 import University.Registers.LecturerRegister;
 import University.Registers.SubjectRegister;
