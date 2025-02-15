@@ -25,11 +25,11 @@ public class LecturerCSVUtil {
                 bw.write(lecturer.getName() + SEPARATOR);
                 bw.write(lecturer.getSurname() + SEPARATOR);
                 bw.write(lecturer.getDepartment() + SEPARATOR);
-                bw.write(lecturer.getStartDate() + SEPARATOR);
+                bw.write(dateFormat.format(lecturer.getStartDate()) + SEPARATOR);
                 bw.write(lecturer.getEmail() + SEPARATOR);
                 bw.write(lecturer.getPhoneNumber() + SEPARATOR);
                 bw.write(lecturer.getGender() + SEPARATOR);
-                bw.write(lecturer.getBirthday().toString());
+                bw.write(dateFormat.format(lecturer.getBirthday()));
                 //bw.write(lecturer.getSubjectList());
             }
             bw.close();
@@ -70,6 +70,7 @@ public class LecturerCSVUtil {
             e.printStackTrace();
         }catch (ParseException pe){
             System.out.println("Error while parsing the date");
+            pe.printStackTrace();
         }
 
         return null;
