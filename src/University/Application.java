@@ -1,12 +1,14 @@
 package University;
 
 import JavaFundamentalsCoding.Helper;
+import University.FilesIO.LecturerCSVUtil;
 import University.FilesIO.SubjectCSVUtil;
 import University.Registers.LecturerRegister;
 import University.Registers.SubjectRegister;
 
 public class Application {
     private LecturerRegister lecturerRegister;
+    private LecturerCSVUtil lecturerCSVUtil;
     private SubjectRegister subjectRegister;
     private SubjectCSVUtil subjectCSVUtil;
 
@@ -27,10 +29,11 @@ public class Application {
 
     private static void initUtils(Application app){
         app.subjectCSVUtil = new SubjectCSVUtil();
+        app.lecturerCSVUtil = new LecturerCSVUtil();
     }
 
     private static void initRegisters(Application app) {
-        app.lecturerRegister = new LecturerRegister();
+        app.lecturerRegister = new LecturerRegister(app.lecturerCSVUtil.readAndReturnMap());
         app.subjectRegister = new SubjectRegister(app.subjectCSVUtil.readFromFile());
 
     }
