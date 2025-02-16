@@ -1,7 +1,6 @@
 package University;
 
 import JavaFundamentalsCoding.Helper;
-import University.Entity.Student;
 import University.FilesIO.LecturerCSVUtil;
 import University.FilesIO.StudentCSVUtil;
 import University.FilesIO.SubjectCSVUtil;
