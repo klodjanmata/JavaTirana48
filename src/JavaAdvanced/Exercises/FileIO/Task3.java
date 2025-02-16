@@ -9,12 +9,28 @@ import java.util.List;
 
 public class Task3 {
     private static final String FILENAME = "Files\\Test.txt";
+
     public static void main(String[] args) {
         List<String> content = readFile();
         printStringList(content);
-        String toAdd = "\nPoezi nga ChatGPT\n";
-        content.add(6, toAdd);
-        writeFile(content);
+
+        System.out.println("Longest:\n" + longestWord(content));
+//        String toAdd = "\nPoezi nga ChatGPT\n";
+//        content.add(6, toAdd);
+//        writeFile(content);
+    }
+
+    public static String longestWord(List<String> content) {
+        String longest = "";
+        for (String s : content) {
+            String[] words = s.split(" ");
+            for (int i = 0; i < words.length; i++) {
+                if (words[i].length() > longest.length()){
+                    longest = words[i];
+                }
+            }
+        }
+        return longest;
     }
 
     public static void printStringList(List<String> list) {
