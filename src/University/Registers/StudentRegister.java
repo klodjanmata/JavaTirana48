@@ -15,6 +15,15 @@ public class StudentRegister {
         this.students = students;
     }
 
+    public Student findById(String id) {
+        for (Student s : students) {
+            if (s.getId().equals(id)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
     public void createNewStudent(){
         System.out.println("Creating new student");
         Student s = new Student();

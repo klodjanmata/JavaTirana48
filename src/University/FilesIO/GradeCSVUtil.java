@@ -54,7 +54,7 @@ public class GradeCSVUtil {
         return grades;
     }
 
-    public String getHeader() {
+    private String getHeader() {
         return  "StudentID,SubjectID,Grade";
     }
 }

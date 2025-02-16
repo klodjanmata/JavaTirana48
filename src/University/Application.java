@@ -1,9 +1,11 @@
 package University;
 
 import JavaFundamentalsCoding.Helper;
+import University.FilesIO.GradeCSVUtil;
 import University.FilesIO.LecturerCSVUtil;
 import University.FilesIO.StudentCSVUtil;
 import University.FilesIO.SubjectCSVUtil;
+import University.Registers.GradeRegister;
 import University.Registers.LecturerRegister;
 import University.Registers.StudentRegister;
 import University.Registers.SubjectRegister;
@@ -15,6 +17,8 @@ public class Application {
     private SubjectCSVUtil subjectCSVUtil;
     private StudentRegister studentRegister;
     private StudentCSVUtil studentCSVUtil;
+    private GradeRegister gradeRegister;
+    private GradeCSVUtil gradeCSVUtil;
 
     public static void main(String[] args) {
         Application app = new Application();
@@ -35,13 +39,15 @@ public class Application {
         app.subjectCSVUtil = new SubjectCSVUtil();
         app.lecturerCSVUtil = new LecturerCSVUtil();
         app.studentCSVUtil = new StudentCSVUtil();
+        app.gradeCSVUtil = new GradeCSVUtil();
     }
 
     private static void initRegisters(Application app) {
         app.lecturerRegister = new LecturerRegister(app.lecturerCSVUtil.readAndReturnMap());
         app.subjectRegister = new SubjectRegister(app.subjectCSVUtil.readFromFile());
-        app.studentRegister = new StudentRegister(app.studentCSVUtil.readFromFile())
-;    }
+        app.studentRegister = new StudentRegister(app.studentCSVUtil.readFromFile());
+        app.gradeRegister = new GradeRegister(app.gradeCSVUtil.readFromCSV());
+    }
 
     private static void closingOperations(Application app) {
         System.out.println("Closing operations");
@@ -49,6 +55,7 @@ public class Application {
         app.subjectCSVUtil.writeToFile(app.subjectRegister.getSubjects());
         app.lecturerCSVUtil.writeMapToFile(app.lecturerRegister.getLecturers());
         app.studentCSVUtil.writeToFile(app.studentRegister.getStudents());
+        app.gradeCSVUtil.writeToCSV(app.gradeRegister.getGradeList());
         System.out.println("Good Bye!!");
     }
 
@@ -56,11 +63,12 @@ public class Application {
         System.out.println( "Chose action: \n" +
                 "1 - Add Lecturer \n" +
                 "2 - Add Student \n" +
-                "3 - Grades \n" +
+                "3 - Add Grades \n" +
                 "4 - Add Subject \n" +
                 "5 - Print Lecturers \n" +
                 "6 - Print Students \n" +
                 "7 - Print Subjects \n" +
+                "8 - Print Grades \n" +
                 "0 - Exit" );
     }
 
@@ -73,21 +81,22 @@ public class Application {
                 app.studentRegister.createNewStudent();
                 break;
             case 3:
-                System.out.println("Grades");
+                app.gradeRegister.createNewGrade();
                 break;
             case 4:
                 app.subjectRegister.createNewSubject();
                 break;
             case 5:
-                System.out.println("Print Lecturers");
                 app.lecturerRegister.printALlLecturers();
                 break;
             case 6:
-                System.out.println("Print Students");
                 app.studentRegister.printAllStudents();
                 break;
             case 7:
                 app.subjectRegister.printAllSubjects();
+                break;
+            case 8:
+                app.gradeRegister.printGradesFormated(app.studentRegister, app.subjectRegister);
                 break;
             default:
                 System.out.println("Invalid choice! Please chose again!");

@@ -11,6 +11,15 @@ import java.util.stream.Collectors;
 public class SubjectRegister {
     private List<Subject> subjects;
 
+    public Subject findById(String id) {
+        for (Subject s : subjects) {
+            if (s.getId().equals(id)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
     public void createNewSubject() {
         System.out.println("Creating new subject");
         Subject s = new Subject();

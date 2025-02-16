@@ -10,6 +10,7 @@ public class Grade {
         this.subjectId = subjectId;
         this.grade = grade;
     }
+
     public Grade() {}
 
     public String getStudentId() {
