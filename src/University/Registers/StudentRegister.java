@@ -3,16 +3,49 @@ package University.Registers;
 import JavaAdvanced.Exercises.Collections.Task2.Genre;
 import JavaFundamentalsCoding.Helper;
 import University.Entity.FieldOfStudy;
+import University.Entity.Grade;
 import University.Entity.Student;
+import University.Entity.Subject;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StudentRegister {
     private List<Student> students;
 
     public StudentRegister(List<Student> students) {
         this.students = students;
+    }
+
+    public void printStudentWithGPA(SubjectRegister subjectRegister, List<Grade> gradeList) {
+        String studentId = getStudentIdFromUer();
+        Student s = findById(studentId);
+        if (s == null){
+            System.out.println("Student with ID " + studentId + " not found");
+            return;
+        }
+        List<Grade> myGrades = gradeList.stream().filter(grade -> grade.getStudentId().equals(studentId)).collect(Collectors.toList());
+        int totalCredits = 0;
+        int totalGradesAndCredits = 0;
+        for(Grade grade : myGrades){
+            Subject subject = subjectRegister.findById(grade.getSubjectId());
+            totalGradesAndCredits = totalGradesAndCredits + (grade.getGrade() * subject.getCredits());
+            totalCredits += subject.getCredits();
+        }
+        System.out.println("Total credits: " + totalCredits);
+        System.out.println("Total grades and credits: " + totalGradesAndCredits);
+        float gpa = (float) totalGradesAndCredits / totalCredits;
+        students.remove(s);
+        s.setGpa(gpa);
+        students.add(s);
+        System.out.println("Name\tSurname\tGPA");
+        System.out.println(s.getName()+"\t"+s.getSurname()+"\t"+s.getGpa());
+    }
+
+    public String getStudentIdFromUer(){
+        System.out.print("Enter Student ID: ");
+        return Helper.getStringFromUser();
     }
 
     public Student findById(String id) {

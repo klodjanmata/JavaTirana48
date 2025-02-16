@@ -69,6 +69,7 @@ public class Application {
                 "6 - Print Students \n" +
                 "7 - Print Subjects \n" +
                 "8 - Print Grades \n" +
+                "9 - Print Students with GPA \n" +
                 "0 - Exit" );
     }
 
@@ -97,6 +98,9 @@ public class Application {
                 break;
             case 8:
                 app.gradeRegister.printGradesFormated(app.studentRegister, app.subjectRegister);
+                break;
+            case 9:
+                app.studentRegister.printStudentWithGPA(app.subjectRegister, app.gradeRegister.getGradeList());
                 break;
             default:
                 System.out.println("Invalid choice! Please chose again!");

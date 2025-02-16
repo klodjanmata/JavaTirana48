@@ -4,7 +4,11 @@ public enum FieldOfStudy {
     INFORMATICS,
     PROGRAMMING,
     MECHANICS,
-    STATISTICS;
+    STATISTICS,
+    PHYSICS,
+    MATHEMATICS,
+    ECONOMICS,
+    ENGINEERING;
 
     public static void printChoseField() {
         System.out.println(

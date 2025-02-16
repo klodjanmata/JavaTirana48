@@ -6,7 +6,11 @@ public enum Department {
     MARKETING,
     FINANCE,
     ENGINEERING,
-    ARCHITECTURE;
+    ARCHITECTURE,
+    SCIENCE,
+    COMPUTER_SCIENCE,
+    MATHEMATICS,
+    ECONOMICS;
 
     public static void printChoseDepartment(){
         System.out.println(
