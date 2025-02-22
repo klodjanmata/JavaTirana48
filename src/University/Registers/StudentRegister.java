@@ -1,6 +1,5 @@
 package University.Registers;
 
-import JavaAdvanced.Exercises.Collections.Task2.Genre;
 import JavaFundamentalsCoding.Helper;
 import University.Entity.FieldOfStudy;
 import University.Entity.Grade;
@@ -30,7 +29,8 @@ public class StudentRegister {
         int totalGradesAndCredits = 0;
         for(Grade grade : myGrades){
             Subject subject = subjectRegister.findById(grade.getSubjectId());
-            totalGradesAndCredits = totalGradesAndCredits + (grade.getGrade() * subject.getCredits());
+            totalGradesAndCredits = totalGradesAndCredits + (grade.getGrade() *
+                    subject.getCredits());
             totalCredits += subject.getCredits();
         }
         System.out.println("Total credits: " + totalCredits);
