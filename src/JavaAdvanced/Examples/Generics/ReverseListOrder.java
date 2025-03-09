@@ -16,14 +16,14 @@ public class ReverseListOrder {
     }
 
     public static void main(String[] args) {
-        List<Integer> numbers = new ArrayList<>(List.of(1, 2, 3, 4, 5, 6));
-        System.out.println(numbers);
-        System.out.println(reverseList(numbers));
-        List<String> names = new ArrayList<>(List.of("Mali", "Renato", "Redion", "Endi", "Orgen"));
-        System.out.println(names);
-        System.out.println(reverseList(names));
-        List<Double> doubles = new ArrayList<>(List.of(1.1, 2.2, 3.3, 4.4, 5.5, 6.6));
-        System.out.println(doubles);
-        System.out.println(reverseList(doubles));
+//        List<Integer> numbers = new ArrayList<>(1);
+//        System.out.println(numbers);
+//        System.out.println(reverseList(numbers));
+//        List<String> names = new ArrayList<>(List.of("Mali", "Renato", "Redion", "Endi", "Orgen"));
+//        System.out.println(names);
+//        System.out.println(reverseList(names));
+//        List<Double> doubles = new ArrayList<>(List.of(1.1, 2.2, 3.3, 4.4, 5.5, 6.6));
+//        System.out.println(doubles);
+//        System.out.println(reverseList(doubles));
     }
 }

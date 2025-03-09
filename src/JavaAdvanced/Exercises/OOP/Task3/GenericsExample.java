@@ -13,10 +13,12 @@ public class GenericsExample implements OrderReverser {
         Rectangle r2 = new Rectangle();
         Square s1 = new Square();
         Square s2 = new Square();
-        List<Shape> shapes = new ArrayList<>(List.of(c1, c2, r1, r2, s1, s2));
-        List<Circle> circles = new ArrayList<>(List.of(c1, c2));
-        List<Rectangle> rectangles = new ArrayList<>(List.of(r1, r2, s1, s2));
-        List<Square> squares = new ArrayList<>(List.of(s1, s2));
+//        List<Shape> shapes = new ArrayList<>(List.of(c1, c2, r1, r2, s1, s2));
+//        List<Circle> circles = new ArrayList<>(List.of(c1, c2));
+//        List<Rectangle> rectangles = new ArrayList<>(List.of(r1, r2, s1, s2));
+        List<Square> squares = new ArrayList<>();
+        squares.add(s1);
+        squares.add(s2);
 //        reverseList(shapes);
 //        reverseList(circles);
 //        reverseList(rectangles);
