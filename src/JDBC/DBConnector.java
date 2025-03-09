@@ -10,6 +10,7 @@ import java.util.List;
 public class DBConnector {
     public static void main(String[] args) {
         List<Author> dbAuthors = new ArrayList<>();
+
         try (Connection conn  =
          DriverManager.getConnection("jdbc:mysql://localhost:3306/javatirana48",
                                     "root", "root")
@@ -19,10 +20,10 @@ public class DBConnector {
             ResultSet rs = statement.executeQuery("SELECT * FROM author");
             while (rs.next()){
                 Author a = new Author();
-                a.setId(rs.getInt(1));
-                a.setName(rs.getString(2));
-                a.setLastname(rs.getString(3));
-                a.setDateOfBirth(rs.getDate(4));
+                a.setId(rs.getInt("id"));
+                a.setName(rs.getString("Name"));
+                a.setLastname(rs.getString("Surname"));
+                a.setDateOfBirth(rs.getDate("DateOfBirth"));
                 dbAuthors.add(a);
             }
 
