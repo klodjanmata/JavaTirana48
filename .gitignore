@@ -1,5 +1,6 @@
 ### IntelliJ IDEA ###
 out/
+target/
 .idea
 JavaTirana48.iml
 !**/src/main/**/out/
