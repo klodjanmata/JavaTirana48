@@ -10,11 +10,11 @@ public class CreateTable {
     public static void main(String[] args) {
         try {
             Connection conn = DBConnection.getConnection();
-            //createTable(conn);
-            //add(conn);
-            //update(conn);
-            //delete(conn, 2);
-            displayTableRecords(conn);
+//            createTable(conn);
+//            add(conn);
+//            update(conn);
+//            delete(conn, 2);
+//            displayTableRecords(conn);
         }catch (Exception e){
             e.printStackTrace();
         }
